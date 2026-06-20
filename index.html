@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know your cheeseburger</title>
+    <link rel="icon" type="image/png" href="shadow.png">
+</head>
+<body>
+    <style>
+        body {
+            background-color: #f5bb78;
+            color: #2f1900;
+            text-align: center;
+            margin: 0;
+            font-family: 'comfortaa', sans-serif;
+            height: 80rem;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            margin-top: -1rem;
+        }
+        .header {
+            background-color: #e3953c;
+            padding: 1rem;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            border-radius: 1rem;
+        }
+        .header-text {
+            flex: 1;
+        }
+        .left_deco {
+            height: 13rem;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .right_deco {
+            height: 13rem;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .signer {
+            font-size: 1.5rem;
+            position: absolute;
+            width: 95%;
+            height: auto;
+            transform: translate(2.5%, 0%);
+            display: flex;
+            justify-content: space-between;
+        }
+        .sign {
+            margin: 1rem; 
+            padding: 1rem;
+            background-color: #e3953c;
+            border-radius: 1rem;
+            width: 30%;
+
+        }
+
+        .arrow {
+            background-color: #e3953c;
+            width: 19rem;
+            height: 19rem;
+            margin-top: 1rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 26rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease, background-color 0.3s ease, width 0.9s ease-in-out, height 1s ease-in-out, top 1s ease-in-out;
+            z-index: 10;
+        }
+        .arrow.shrinked {
+            width: 5rem;
+            height: 5rem;
+            top: 50rem;
+        }
+        .arrow:hover {
+            cursor: pointer;
+            transform: translate(-50%, -50%) scale(1.05);
+            background-color: #d98d2f;
+        }
+        .arrow img {
+            animation: float 1s ease-in-out infinite alternate;
+            margin-top: 10%;
+        }
+        @keyframes float {
+            from {
+                transform: translateY(1rem);
+            }
+            to {
+                transform: translateY(-1rem);
+            }
+        }
+
+        .arrow img.shrinked {
+            animation: none;
+        }
+        .zipline{
+            background-color: #ff00bb00; 
+            width: 100%;
+            min-height: 180vh;
+            position: relative;
+        }
+        .content {
+            transform: translate(-50%, -10%);
+            left: 50%;
+            margin-top: 37rem;
+            height: 30rem;
+            width: 30rem;
+            position: absolute;
+        }
+        .content.shrinked {
+            background-color: #ffff0000;
+            position: sticky;
+            top: 5rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            z-index: 1;
+        }
+
+        .toping {
+            transform: translate(-50%, 0%);
+            width: 100%; 
+            height: auto;
+            position: absolute;
+        }
+
+        .calories {
+            margin: 0.5rem auto 0;
+            font-weight: 700;
+            color: #2f1900;
+            background: #ffffff99;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+            display: block;
+            width: max-content;
+            z-index: 100;
+        }
+
+        .note {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .note.hiden {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #e3953c;
+            padding: 1rem;
+        }
+    </style>
+    <div class="header">
+        <img src="images/shadow.png" alt="shadow" class="left_deco">
+        <div class="header-text">
+            <h1>Cheeseburger</h1>
+            <h2>Really popular food from the United States of America</h2>
+            <h3>Do you actually know how much calories are in a regular cheeseburger?</h3>
+        </div>
+        <img src="images/shadow.png" alt="shadow" class="right_deco">
+    </div>
+    <div class="arrow" button onclick="goDown()">
+        <img src="images/arrow.png" class="arrow-img" alt="arrow" style="width: 80%; height: 80%;">
+    </div>
+
+    <div class="signer">
+    <div class="sign">
+        Did you know the first cheeseburger was allegedly invented in 1935 in Denver, Colorado?" While Louis Ballast of the Humpty Dumpty Drive-In in Denver was the first person to actually trademark the name "cheeseburger" in 1935, he might not have been the very first person to put cheese on a patty.
+    </div>
+    <div class="sign">
+        The world's largest cheeseburger weighed over 2,000 pounds and was made in 2012 in Minnesota, USA?" On September 2, 2012, the chefs at the Black Bear Casino Resort near Carlton, Minnesota, officially shattered the Guinness World Record by crafting a mind-boggling 2,014-pound (914 kg) bacon cheeseburger.
+    </div>
+    </div>
+
+    <div class="zipline">
+    <div class="content">
+        <div class="note">To add an ingredients, click on the arrow again</div>
+        <img src="images/bottom_bun.png" class="bottom-bun toping" data-kcal="150" alt="burger">
+        <img src="images/mustard.png" class="mustard toping hidden" data-kcal="10" alt="burger">
+        <img src="images/ketchup.png" class="ketchup toping hidden" data-kcal="20" alt="burger">
+        <img src="images/latuce.png" class="latuce toping hidden" data-kcal="5" alt="burger">
+        <img src="images/onions.png" class="onions toping hidden" data-kcal="10" alt="burger">
+        <img src="images/pickles.png" class="pickles toping hidden" data-kcal="5" alt="burger">
+        <img src="images/tomatoes.png" class="tomatoes toping hidden" data-kcal="10" alt="burger">
+        <img src="images/pattie.png" class="pattie toping hidden" data-kcal="300" alt="burger">
+        <img src="images/cheeze.png" class="cheeze toping hidden" data-kcal="80" alt="burger">
+        <img src="images/upper_bun.png" class="upper_bun toping hidden" data-kcal="120" alt="burger">
+        <div class="calories">Total kcal: <span id="calorie-count">0</span></div>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>Created by <a href="https://github.com/Naykvel">Naykvel</a></p>
+    </footer>
+
+    <script>
+        let wasTriggered = false;
+        let arrowActivated = false;
+        let tkal = 0;
+
+        function updateCalorieDisplay() {
+            const el = document.getElementById('calorie-count');
+            if (el) el.textContent = tkal;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            tkal = 0;
+            document.querySelectorAll('.toping:not(.hidden)').forEach(el => {
+                const kcal = parseInt(el.dataset.kcal) || 0;
+                tkal += kcal;
+            });
+            updateCalorieDisplay();
+        });
+
+        function goDown() {
+            const arrow = document.querySelector('.arrow');
+            const pic = document.querySelector('.arrow img');
+            const content = document.querySelector('.content');
+
+            if (!arrowActivated) {
+                arrowActivated = true;
+                arrow.classList.add('shrinked');
+                pic.classList.add('shrinked');
+                setTimeout(() => {
+                    content.classList.add('shrinked');
+                }, 500);
+            } else {
+                addToping();
+            }
+
+            const targetElement = document.querySelector('.bottom-bun');
+            if (targetElement) {
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        function addToping() {
+            const nextToping = document.querySelector('.toping.hidden');
+            if (nextToping) {
+                const kcal = parseInt(nextToping.dataset.kcal) || 0;
+                nextToping.classList.remove('hidden');
+                tkal += kcal;
+                updateCalorieDisplay();
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            if (wasTriggered || arrowActivated) return;
+            const pixelsScrolled = window.scrollY;
+            const remScrolled = pixelsScrolled / 16;
+            const targetRem = 10;
+            if (remScrolled >= targetRem) {
+                wasTriggered = true;
+                goDown();
+            }
+        });
+    </script>
+</body>
+</html>
