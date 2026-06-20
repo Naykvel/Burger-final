@@ -1,6 +1,6 @@
 ## 1. Interaktivní jednostránková webová aplikace, která slouží jako prezentace cheeseburgeru.
 Web obsahuje zajímavá fakta a automatický počítač kalorií, který dynamicky reaguje na každou přidanou vrstvu burgeru.
-
+Live web: https://naykvel.github.io/Burger-final/
 
 
 ## 2. Použité technologie
