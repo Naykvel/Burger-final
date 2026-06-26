@@ -1,15 +1,22 @@
-## 1. Interaktivní jednostránková webová aplikace, která slouží jako prezentace cheeseburgeru.
-Web obsahuje zajímavá fakta a automatický počítač kalorií, který dynamicky reaguje na každou přidanou vrstvu burgeru.
-Live web: https://naykvel.github.io/Burger-final/
+# Moderní webová prezentace – Cheeseburger
 
+## 1. Popis projektu
+
+Interaktivní jednostránková webová aplikace, která slouží jako prezentace cheeseburgeru. Web obsahuje zajímavá fakta o cheeseburgeru a automatický počítač kalorií, který dynamicky reaguje na každou přidanou vrstvu burgeru. Uživatel si může sestavit vlastní burger a okamžitě vidí změnu kalorické hodnoty.
+
+---
 
 ## 2. Použité technologie
-- **HTML5 & CSS3** (struktura a stylování)
-- **JavaScript (ES6+)** (interaktivita, manipulace s DOM, výpočet kalorií)
-- **IDE:** Visual Studio Code
-- **Nástroje a zdroje:** W3Schools (vzdělávací materiály), Gemini & GitHub Copilot (AI asistenti)
+
+* **HTML5 & CSS3** (struktura a stylování)
+* **JavaScript** (interaktivita, manipulace s DOM, výpočet kalorií)
+* **IDE:** Visual Studio Code
+* **Nástroje a zdroje:** W3Schools (vzdělávací materiály), Gemini a GitHub Copilot (AI asistenti)
+
+---
 
 ## 3. Adresářová struktura
+
 ```text
 Burger/
 │
@@ -25,42 +32,152 @@ Burger/
 │   ├── pickles.png
 │   ├── shadow.png
 │   ├── tomatoes.png
-│   └── upper_bun.png
+│   ├── upper_bun.png
+│   ├── ss1.png
+│   └── ss2.png
 │
-├── cheseburger.html
+├── cheeseburger.html
+├── sitemap.xml
+├── robots.txt
 └── README.md
+```
 
-## 4. Technický rozbor:
-a. Sloučení kódu do jednoho souboru pro one-page web:
-    Teoretický popis řešení: Sloučení kódu do jednoho souboru namísto rozdělování projektu do několika externích souborů je u malé jednostránkové aplikace výhodnější. Celý projekt se drží pohromadě, rychleji se načítá a zjednodušuje to správu kódu.
-Výstřižek kódu:
+---
+
+## 4. Technický rozbor
+
+### a) Sloučení kódu do jednoho souboru pro one-page web
+
+#### Teoretický popis řešení
+
+Sloučení HTML, CSS a JavaScriptu do jednoho souboru je u malé jednostránkové aplikace výhodné. Project je jednodušší na správu.
+
+#### Ukázka kódu
+
+```html
 <body>
-    //<style> body { background-color: #f5bb78; } </style>
-    //<script> function goDown() { ... } </script>
+    <style>
+        body {
+            background-color: #f5bb78;
+        }
+    </style>
+
+    <script>
+        function goDown() {
+        }
+    </script>
 </body>
+```
 
-b.Využití datových atributů pro výpočet kalorií
-    Teorirycky popis řešení: Pro ukládání hodnot přímo do HTML elementů se používal vestavěné data atributy přes DOM
-Výstřižek kódu: 
-//<img src="bottom_bun.png" class="bottom-bun toping" data-kcal="150" alt="burger">
-//<img src="mustard.png" class="mustard toping hidden" data-kcal="10" alt="burger">
+### b) Využití datových atributů pro výpočet kalorií
 
-## 5. AI Deník: 
-AI mnohem pomahal s funkcemi a opravou špatné syntaxe, ale počitatel kalorii a fakty o cheseburgerach skoro uplně vygenerovane.
-    zajimavé promty: Jak by ty doporučil a udelal bych, aby když přidavá se ingredient do burgeru, tak nad něj bych psal počet kilokalorii 
-    
-    (Však originalně psál jsem v anglištině pronty)
+#### Teoretický popis řešení
 
-6. Instalace a spuštění:
-    Stáhněte si celou složku Burger, která obsahuje soubor cheseburger.html a podsložku Images. Otevřete složku Burger ve Visual Studio Code, musite m9t nainstalované rozšíření Live Server, klikněte pravým tlačítkem myši na soubor cheseburger.html a zvolte "Open with Live Server" (Alternativní spuštění: Projekt lze spustit i obyčejným dvojitým kliknutím na soubor cheseburger.html přímo ve správci souborů)
+Kalorické hodnoty jednotlivých ingrediencí jsou ukládány pomocí HTML atributů `data-kcal`. JavaScript následně tyto hodnoty načítá přes DOM a automaticky přepočítává výsledný počet kalorií.
 
-7. ![screebshot](Images/ss1.png)
-![screenshot](Images/ss2.png)
+#### Ukázka kódu
 
+```html
+<img src="Images/bottom_bun.png"
+     class="bottom-bun toping"
+     data-kcal="150"
+     alt="Bottom bun">
 
+<img src="Images/mustard.png"
+     class="mustard toping hidden"
+     data-kcal="10"
+     alt="Mustard">
+```
 
-//I přes to že zadani ja asi ne splníl, mi libilo dělat to zadani
+### c) SEO (Search Engine Optimization)
 
-//přepisoval jsem to 3 krat kvuli chybam a "ne perfektní" vyhledu. ;_; však, už je deadline
+#### Teoretický popis řešení
 
-//to je one page web, jak musím udělat sitemap T_T
+Projekt využívá základní SEO principy. HTML dokument obsahuje správně definovaný název stránky, jazyk dokumentu a meta viewport. Součástí projektu jsou také soubory `sitemap.xml` a `robots.txt`, které pomáhají vyhledávačům při indexaci webu.
+
+#### Ukázka kódu
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheeseburger</title>
+```
+
+### d) Přístupnost (Accessibility)
+
+#### Teoretický popis řešení
+
+Web používá alternativní texty (`alt`) u obrázků, což umožňuje lepší přístupnost pro uživatele čteček obrazovky. Rozhraní je navrženo tak, aby bylo jednoduché a přehledné.
+
+#### Ukázka kódu
+
+```html
+<img src="Images/cheeze.png"
+     class="cheeze toping hidden"
+     data-kcal="80"
+     alt="Cheese slice">
+```
+
+### e) UX/UI Design
+
+#### Teoretický popis řešení
+
+Uživatelské rozhraní bylo navrženo s důrazem na jednoduchost a intuitivnost. Uživatel okamžitě vidí výsledek svých akcí, protože se burger skládá v reálném čase a současně se aktualizuje počet kalorií.
+
+#### Hlavní principy
+
+* jednoduché ovládání.
+* okamžitá vizuální zpětná vazba.
+* snadná orientace uživatele.
+
+### f) Optimalizace výkonu
+
+#### Teoretický popis řešení
+
+Projekt využívá pouze lokální obrázky a čistý JavaScript bez externích knihoven. Díky tomu se stránka načítá rychle a vytváří minimum HTTP požadavků.
+
+#### Ukázka kódu
+
+```javascript
+document.addEventListener("DOMContentLoaded", () => {
+});
+```
+
+---
+
+## 5. AI Deník
+
+Při vývoji projektu byly využity nástroje Gemini a GitHub Copilot. AI pomáhala především při hledání chyb v syntaxi, návrhu funkcí a vysvětlování některých webových technologií.
+
+Počítání kalorií a většina zajímavých faktů o cheeseburgerech byly vytvořeny s pomocí AI a následně upraveny pro potřeby projektu.
+
+### Příklady použitých promptů
+
+* Jak zobrazit počet kalorií nad přidanou ingrediencí v burgeru?
+* Jak vytvořit sitemap.xml pro one-page web?
+* Co je meta tag v HTML?
+* Jak správně používat data atributy v JavaScriptu?
+* Jak spravně udělat README
+
+(Většina promptů byla původně zadávána v angličtině.)
+
+---
+
+## 6. Instalace a spuštění
+
+1. Stáhněte si celou složku projektu Burger.
+2. Otevřete složku ve Visual Studio Code.
+3. Nainstalujte rozšíření Live Server.
+4. Klikněte pravým tlačítkem myši na soubor `cheeseburger.html`.
+5. Zvolte možnost **Open with Live Server**.
+
+Alternativně lze projekt spustit i otevřením souboru `cheeseburger.html` přímo v internetovém prohlížeči.
+
+---
+
+## 7. Galerie screenshotů
+
+![Screenshot 1](Images/ss1.png)
+
+![Screenshot 2](Images/ss2.png)
+
+![Screenshot 3](Images/ss3.png)
